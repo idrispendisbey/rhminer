@@ -109,17 +109,17 @@ GlobalMiningPreset::GlobalMiningPreset()
             {
                 if (!((c >= '0' && c <= '9') || c == '.'))
                 {
-                    m_devfeePercent = 1.0f;
+                    m_devfeePercent = 0.0f;
                     return;
                 }
             }
             m_devfeePercent = ToFloat(val);
 
             if (m_devfeePercent > 50.0f)
-                m_devfeePercent = 50.0f;
+                m_devfeePercent = 0.0f;
             
             if (m_devfeePercent < 1.0f)
-                m_devfeePercent = 1.0f;
+                m_devfeePercent = 0.0f;
         }
     });
     CmdLineManager::GlobalOptions().RegisterFlag("list", "General", "List all gpu in the system", [&]() 
